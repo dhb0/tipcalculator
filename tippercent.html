@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>Tip Calculator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #6ed3cf;
+        }
+        label{
+            display: block;
+        }
+        #main{
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #main *{
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id='main'>
+        <h1>Tip Amount and Grand Total Calculator</h1>
+        <form action="">
+            <label for="billamount">Bill Amount:</label>
+            <input type="number" required id="bill1">
+            <label for="tippercent">Percentage Tip:</label>
+            <input type="number" name="" id="percentTip" required min="0" max="100">
+        </form>
+        
+        <input type="button" value="Submit" onclick="calc()">
+        <span><h3>Tip Amount:</h3><h3 id="tipResult"></h3></span>
+        <span><h3>Total Bill:</h3><h3 id="totalResult"></h3></span>
+    </div>
+
+<script>
+    function calc(){
+        var num1 = Number(document.getElementById('bill1').value);
+        var num2 = Number(document.getElementById('percentTip').value);
+
+        var tipAmount = num1*(num2/100);
+        var grTotal = num1 + tipAmount;
+        if(document.getElementById('bill1').value == '' || document.getElementById('percentTip').value == ''){
+            alert('Enter real numbers');
+        }else{
+        document.getElementById('tipResult').innerHTML = tipAmount;
+        document.getElementById('totalResult').innerHTML = grTotal;
+        }
+    }
+</script>
+</body>
+</html>
